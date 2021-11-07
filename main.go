@@ -12,6 +12,10 @@ import (
 )
 
 func init() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
+	log.SetPrefix("apod-wallpaper: ")
+	log.SetOutput(os.Stderr)
+
 	//Create wallpaper storage dir
 
 	config := config.Config()

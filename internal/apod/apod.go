@@ -28,7 +28,7 @@ func getApodIMG(config config.ConfigType) (apod ApodReturn) {
 	q := u.Query()
 	q.Set("api_key", config.ApiKey)
 	u.RawQuery = q.Encode()
-	log.Println(u)
+	// log.Println(u)
 
 	spaceClient := http.Client{
 		Timeout: time.Second * 2, // Timeout after 2 seconds
