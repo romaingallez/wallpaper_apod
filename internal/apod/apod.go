@@ -13,7 +13,7 @@ import (
 	"github.com/romaingallez/wallpaper_apod/internal/config"
 )
 
-func getApodIMG(config config.ConfigType) (apod ApodReturn) {
+func GetApodIMG(config config.ConfigType) (apod ApodReturn) {
 
 	// url := "http://api.open-notify.org/astros.json"
 
@@ -64,7 +64,7 @@ func getApodIMG(config config.ConfigType) (apod ApodReturn) {
 }
 
 func DownloadApod(config config.ConfigType) {
-	apod := getApodIMG(config)
+	apod := GetApodIMG(config)
 
 	output := fmt.Sprintf("%s\\wallpaper.bmp", config.ImagePath)
 	// log.Println(output)

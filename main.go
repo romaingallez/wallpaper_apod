@@ -8,7 +8,6 @@ import (
 
 	"github.com/romaingallez/wallpaper_apod/internal/apod"
 	"github.com/romaingallez/wallpaper_apod/internal/config"
-	"github.com/romaingallez/wallpaper_apod/internal/wallpaper"
 )
 
 func init() {
@@ -39,7 +38,7 @@ func main() {
 	if yes {
 		config := config.Config()
 		apod.DownloadApod(config)
-		wallpaper.SetWallpaper(config)
+		apod.SetWallpaper(config)
 
 	}
 }
