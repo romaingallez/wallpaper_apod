@@ -4,6 +4,8 @@ import (
 	"log"
 	"os"
 
+	"github.com/gen2brain/dlgs"
+
 	"github.com/romaingallez/wallpaper_apod/internal/apod"
 	"github.com/romaingallez/wallpaper_apod/internal/config"
 	"github.com/romaingallez/wallpaper_apod/internal/wallpaper"
@@ -24,8 +26,16 @@ func init() {
 }
 
 func main() {
-	config := config.Config()
-	apod.DownloadApod(config)
-	wallpaper.SetWallpaper(config)
 
+	yes, err := dlgs.Question("Question", "Do you want to set the last apod image as wallpaper ?", false)
+	if err != nil {
+		log.Panic(err)
+	}
+
+	if yes {
+		config := config.Config()
+		apod.DownloadApod(config)
+		wallpaper.SetWallpaper(config)
+
+	}
 }
